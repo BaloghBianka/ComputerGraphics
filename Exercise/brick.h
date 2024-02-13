@@ -3,16 +3,15 @@
 
 typedef struct Brick
 {
-	double a;
-	double b;
-	double c;
+    double length;
+    double width;
+    double height;
 } Brick;
 
-void set_brick_data(Brick* brick, double a, double b, double c);
+void set_size(Brick* brick, double length, double width, double height);
+double calc_volume(const Brick* cuboid);
+double calc_surface(const Brick* cuboid);
+int has_square_face(const Brick* cuboid);
 
-double calc_brick_area(const Brick* brick);
-
-#endif 
-
-
+#endif
 
