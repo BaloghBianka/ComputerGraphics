@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include <stdio.h>
 
 int main(int argc, char* argv[])
 {
@@ -8,8 +9,10 @@ int main(int argc, char* argv[])
         {-2.0f,  1.0f, -4.0f}
     };
     float b[3][3];
-    float c[3][3];
-    float identity_matrix[3][3];
+	float c[3][3];
+
+    float scaled_a[3][3];
+    float scalar = 2.0f;
 
     init_zero_matrix(b);
     b[1][1] =  8.0f;
@@ -23,8 +26,13 @@ int main(int argc, char* argv[])
 
     print_matrix(c);
 
-    init_identity_matrix(identity_matrix);
-    print_matrix(identity_matrix);
+    multiply_matrix_scalar(a, scalar, scaled_a);
+
+    printf("Original matrix:\n");
+    print_matrix(a);
+
+    printf("\nMatrix multiplied by scalar %f:\n", scalar);
+    print_matrix(scaled_a);
 
     return 0;
 }

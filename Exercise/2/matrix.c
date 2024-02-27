@@ -49,3 +49,14 @@ void init_identity_matrix(float matrix[3][3])
         }
     }
 }
+
+void multiply_matrix_scalar(const float matrix[3][3], float scalar, float result[3][3])
+{
+    int i, j;
+
+    for (i = 0; i < 3; ++i) {
+        for (j = 0; j < 3; ++j) {
+            result[i][j] = matrix[i][j] * scalar;
+        }
+    }
+}
