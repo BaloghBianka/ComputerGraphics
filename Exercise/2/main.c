@@ -32,9 +32,6 @@ int main(int argc, char* argv[])
 
     multiply_matrix_scalar(a, scalar, scaled_a);
 
-    printf("\nOriginal matrix A:\n");
-    print_matrix(a);
-
     printf("\nMatrix A multiplied by scalar %f:\n", scalar);
     print_matrix(scaled_a);
 
@@ -51,6 +48,13 @@ int main(int argc, char* argv[])
 
     printf("\nIdentity Matrix:\n");
     print_matrix(identity_matrix);
+
+    // Transforming a 2D point with homogeneous coordinates
+    float point[3] = {1.0f, 2.0f, 1.0f}; // Homogeneous coordinates: (1, 2, 1)
+    transform_point(result, point);
+
+    printf("\nTransformed Point with Matrix A * B:\n");
+    printf("(%.2f, %.2f, %.2f)\n", point[0], point[1], point[2]);
 
     return 0;
 }

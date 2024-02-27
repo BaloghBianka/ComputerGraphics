@@ -32,5 +32,11 @@ void multiply_matrix_scalar(const float matrix[3][3], float scalar, float result
  */
 void multiply_matrices(const float a[3][3], const float b[3][3], float result[3][3]);
 
+
+/**
+ * Transform a 2D point with homogeneous coordinates using a matrix.
+ */
+void transform_point(const float matrix[3][3], float point[3]);
+
 #endif // MATRIX_H
 

@@ -74,3 +74,18 @@ void multiply_matrices(const float a[3][3], const float b[3][3], float result[3]
         }
     }
 }
+
+void transform_point(const float matrix[3][3], float point[3])
+{
+    float result[3] = {0.0, 0.0, 0.0};
+
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            result[i] += matrix[i][j] * point[j];
+        }
+    }
+
+    for (int i = 0; i < 3; ++i) {
+        point[i] = result[i];
+    }
+}
