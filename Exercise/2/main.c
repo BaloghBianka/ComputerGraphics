@@ -1,5 +1,6 @@
 #include "matrix.h"
 #include <stdio.h>
+#include <math.h> 
 
 int main(int argc, char* argv[])
 {
@@ -55,6 +56,24 @@ int main(int argc, char* argv[])
 
     printf("\nTransformed Point with Matrix A * B:\n");
     printf("(%.2f, %.2f, %.2f)\n", point[0], point[1], point[2]);
+
+    // Applying transformations to the identity matrix
+    printf("\nTransforming Identity Matrix:\n");
+
+    // Scale the identity matrix
+    scale(identity_matrix, 2.0f, 3.0f);
+    printf("\nScaled Identity Matrix:\n");
+    print_matrix(identity_matrix);
+
+    // Shift the identity matrix
+    shift(identity_matrix, 3.0f, -1.0f);
+    printf("\nShifted Identity Matrix:\n");
+    print_matrix(identity_matrix);
+
+    // Rotate the identity matrix
+    rotate(identity_matrix, 45.0f * (M_PI / 180.0f));
+    printf("\nRotated Identity Matrix:\n");
+    print_matrix(identity_matrix);
 
     return 0;
 }

@@ -1,6 +1,6 @@
 #include "matrix.h"
-
 #include <stdio.h>
+#include <math.h>
 
 void init_zero_matrix(float matrix[3][3])
 {
@@ -88,4 +88,32 @@ void transform_point(const float matrix[3][3], float point[3])
     for (int i = 0; i < 3; ++i) {
         point[i] = result[i];
     }
+}
+
+void scale(float matrix[3][3], float scaleX, float scaleY)
+{
+    matrix[0][0] *= scaleX;
+    matrix[1][1] *= scaleY;
+}
+
+void shift(float matrix[3][3], float shiftX, float shiftY)
+{
+    matrix[0][2] += shiftX;
+    matrix[1][2] += shiftY;
+}
+
+void rotate(float matrix[3][3], float angle)
+{
+    float cosTheta = cos(angle);
+    float sinTheta = sin(angle);
+
+    float temp[3][3];
+    init_identity_matrix(temp);
+
+    temp[0][0] = cosTheta;
+    temp[0][1] = -sinTheta;
+    temp[1][0] = sinTheta;
+    temp[1][1] = cosTheta;
+
+    multiply_matrices(temp, matrix, matrix);
 }

@@ -38,5 +38,23 @@ void multiply_matrices(const float a[3][3], const float b[3][3], float result[3]
  */
 void transform_point(const float matrix[3][3], float point[3]);
 
+/**
+ * Scale the transformation matrix based on scaling factors.
+ * Assumes scaling is centered at the origin.
+ */
+void scale(float matrix[3][3], float scaleX, float scaleY);
+
+/**
+ * Shift the transformation matrix based on translation factors.
+ */
+void shift(float matrix[3][3], float shiftX, float shiftY);
+
+/**
+ * Rotate the transformation matrix based on an angle in radians.
+ * Assumes rotation is centered at the origin.
+ */
+void rotate(float matrix[3][3], float angle);
+
+
 #endif // MATRIX_H
 
