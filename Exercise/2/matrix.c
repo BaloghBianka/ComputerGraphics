@@ -39,3 +39,13 @@ void add_matrices(const float a[3][3], const float b[3][3], float c[3][3])
     }
 }
 
+void init_identity_matrix(float matrix[3][3])
+{
+    int i, j;
+
+    for (i = 0; i < 3; ++i) {
+        for (j = 0; j < 3; ++j) {
+            matrix[i][j] = (i == j) ? 1.0f : 0.0f;
+        }
+    }
+}

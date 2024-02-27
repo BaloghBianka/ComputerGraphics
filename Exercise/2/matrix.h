@@ -6,6 +6,11 @@
  */
 void init_zero_matrix(float matrix[3][3]);
 
+
+
+void init_identity_matrix(float matrix[3][3]);
+
+
 /**
  * Print the elements of the matrix.
  */
