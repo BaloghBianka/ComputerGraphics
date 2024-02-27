@@ -60,3 +60,17 @@ void multiply_matrix_scalar(const float matrix[3][3], float scalar, float result
         }
     }
 }
+
+void multiply_matrices(const float a[3][3], const float b[3][3], float result[3][3])
+{
+    int i, j, k;
+
+    for (i = 0; i < 3; ++i) {
+        for (j = 0; j < 3; ++j) {
+            result[i][j] = 0.0;
+            for (k = 0; k < 3; ++k) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+}
