@@ -46,3 +46,15 @@ void set_ball_position(Ball* ball, float x, float y) {
     ball->y = y;
 }
 
+void increase_ball_size(Ball* ball, float amount)
+{
+    ball->radius += amount;
+    if (ball->radius > 100) ball->radius = 100;  // Max radius limit
+}
+
+void decrease_ball_size(Ball* ball, float amount)
+{
+    ball->radius -= amount;
+    if (ball->radius < 10) ball->radius = 10;  // Min radius limit
+}
+

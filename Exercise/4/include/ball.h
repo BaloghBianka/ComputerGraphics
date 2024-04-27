@@ -31,5 +31,8 @@ void render_ball(Ball* ball);
 
 void set_ball_position(Ball* ball, float x, float y);
 
+void increase_ball_size(Ball* ball, float amount);
+void decrease_ball_size(Ball* ball, float amount);
+
 
 #endif /* BALL_H */
