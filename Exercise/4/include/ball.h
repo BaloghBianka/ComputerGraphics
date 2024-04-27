@@ -29,4 +29,7 @@ void update_ball(Ball* ball, double time);
  */
 void render_ball(Ball* ball);
 
+void set_ball_position(Ball* ball, float x, float y);
+
+
 #endif /* BALL_H */

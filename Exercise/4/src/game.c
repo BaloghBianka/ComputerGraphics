@@ -71,6 +71,14 @@ void handle_game_events(Game* game)
             SDL_GetMouseState(&x, &y);
             set_right_pad_position(&(game->pong), y);
             break;
+
+        case SDL_MOUSEBUTTONDOWN:
+            if (event.button.button == SDL_BUTTON_LEFT) {
+                SDL_GetMouseState(&x, &y);
+                // Labda új helyére állítása az egér pozíció alapján
+                set_ball_position(&(game->pong.ball), x, y);
+            }
+            break;
         case SDL_QUIT:
             game->is_running = false;
             break;

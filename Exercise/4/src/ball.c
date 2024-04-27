@@ -40,3 +40,9 @@ void render_ball(Ball* ball)
     glEnd();
     glPopMatrix();
 }
+
+void set_ball_position(Ball* ball, float x, float y) {
+    ball->x = x;
+    ball->y = y;
+}
+
