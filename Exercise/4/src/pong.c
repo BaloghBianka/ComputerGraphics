@@ -44,15 +44,18 @@ void set_right_pad_speed(Pong* pong, float speed)
     set_pad_speed(&(pong->right_pad), speed);
 }
 
-void bounce_ball(Pong* pong)
-{
+void bounce_ball(Pong* pong) {
     if (pong->ball.x - pong->ball.radius < 50) {
-        pong->ball.x = pong->ball.radius + 50;
-        pong->ball.speed_x *= -1;
+        if (pong->ball.y >= pong->left_pad.y && pong->ball.y <= pong->left_pad.y + pong->left_pad.height) {
+            pong->ball.x = pong->ball.radius + 50;
+            pong->ball.speed_x *= -1;
+        }
     }
     if (pong->ball.x + pong->ball.radius > pong->width - 50) {
-        pong->ball.x = pong->width - pong->ball.radius - 50;
-        pong->ball.speed_x *= -1;
+        if (pong->ball.y >= pong->right_pad.y && pong->ball.y <= pong->right_pad.y + pong->right_pad.height) {
+            pong->ball.x = pong->width - pong->ball.radius - 50;
+            pong->ball.speed_x *= -1;
+        }
     }
     if (pong->ball.y - pong->ball.radius < 0) {
         pong->ball.y = pong->ball.radius;
@@ -63,3 +66,4 @@ void bounce_ball(Pong* pong)
         pong->ball.speed_y *= -1;
     }
 }
+
