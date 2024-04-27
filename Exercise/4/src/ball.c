@@ -11,12 +11,15 @@ void init_ball(Ball* ball, float x, float y)
     ball->radius = 50;
     ball->speed_x = 500;
     ball->speed_y = 500;
+    ball->angle = 0.0;  
+    ball->angular_velocity = 0.1;  
 }
 
 void update_ball(Ball* ball, double time)
 {
     ball->x += ball->speed_x * time;
     ball->y += ball->speed_y * time;
+    ball->angle += ball->angular_velocity * time; 
 }
 
 void render_ball(Ball* ball)
@@ -27,6 +30,7 @@ void render_ball(Ball* ball)
 
     glPushMatrix();
     glTranslatef(ball->x, ball->y, 0.0);
+    glRotatef(ball->angle, 0.0, 0.0, 1.0); 
     glBegin(GL_TRIANGLE_FAN);
     glColor3f(1.0, 0.9, 0.8);
     glVertex2f(0, 0);
@@ -49,12 +53,12 @@ void set_ball_position(Ball* ball, float x, float y) {
 void increase_ball_size(Ball* ball, float amount)
 {
     ball->radius += amount;
-    if (ball->radius > 100) ball->radius = 100;  // Max radius limit
+    if (ball->radius > 100) ball->radius = 100;  
 }
 
 void decrease_ball_size(Ball* ball, float amount)
 {
     ball->radius -= amount;
-    if (ball->radius < 10) ball->radius = 10;  // Min radius limit
+    if (ball->radius < 10) ball->radius = 10;  
 }
 
